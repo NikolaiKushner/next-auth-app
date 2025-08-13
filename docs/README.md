@@ -6,6 +6,18 @@ This folder contains all the documentation for the Next.js authentication app.
 
 ### 🎯 Core Features
 
+- **[Password Reset System](./PASSWORD_RESET_SETUP.md)** - Quick setup guide for password reset
+  - Email-based password recovery
+  - Secure token verification
+  - Supabase configuration
+  - Setup instructions
+  
+- **[Password Reset Feature](./PASSWORD_RESET.md)** - Detailed password reset documentation
+  - Complete feature documentation
+  - API routes and components
+  - Security features and troubleshooting
+  - Customization options
+
 - **[Profile System](./PROFILE_SYSTEM.md)** - Complete guide to the User Profile System
   - Profile page functionality
   - Avatar upload system with drag-and-drop
@@ -27,6 +39,8 @@ This folder contains all the documentation for the Next.js authentication app.
 next-auth-app/
 ├── docs/                          # 📚 Documentation
 │   ├── README.md                  # This file
+│   ├── PASSWORD_RESET_SETUP.md    # Password reset setup guide
+│   ├── PASSWORD_RESET.md          # Password reset feature documentation
 │   ├── PROFILE_SYSTEM.md          # User Profile System guide
 │   └── STORAGE_FIX.md             # Storage troubleshooting guide
 ├── app/                           # Next.js app directory
@@ -44,6 +58,16 @@ next-auth-app/
 │   │   └── page.tsx              # Sign in form
 │   ├── sign-up/                   # User registration
 │   │   └── page.tsx              # Sign up form
+│   ├── forgot-password/           # Password reset request
+│   │   └── page.tsx              # Forgot password form
+│   ├── reset-password/            # Password reset completion
+│   │   ├── page.tsx              # Reset password page
+│   │   └── ResetPasswordForm.tsx # Reset form component
+│   ├── api/auth/                  # Authentication API routes
+│   │   ├── forgot-password/route.ts     # Send reset email
+│   │   ├── reset-password/route.ts      # Process password reset
+│   │   ├── callback/route.ts            # Auth callbacks
+│   │   └── password-reset-callback/route.ts # Password reset callbacks
 │   ├── globals.css               # Global styles
 │   ├── layout.tsx                # Root layout
 │   └── page.tsx                  # Home page
@@ -71,11 +95,20 @@ next-auth-app/
 
 For new developers or users:
 
-1. **Start with** [Profile System](./PROFILE_SYSTEM.md) for feature overview
-2. **Reference** [Storage Fix](./STORAGE_FIX.md) if you encounter upload issues
-3. **Check** the main [README.md](../README.md) for project setup
+1. **Start with** [Password Reset Setup](./PASSWORD_RESET_SETUP.md) for quick password reset configuration
+2. **Read** [Password Reset Feature](./PASSWORD_RESET.md) for detailed implementation details
+3. **Follow** [Profile System](./PROFILE_SYSTEM.md) for user profile features
+4. **Reference** [Storage Fix](./STORAGE_FIX.md) if you encounter upload issues
+5. **Check** the main [README.md](../README.md) for project setup
 
 ## 🎯 Key Features Implemented
+
+### ✅ Password Reset System
+- **Email-based Recovery**: Secure password reset via email links
+- **Token Verification**: One-time use tokens with expiration
+- **Multiple URL Format Support**: Works with query params and URL fragments
+- **Robust Callback Handling**: Multiple callback routes for reliability
+- **Debug Information**: Development debugging for troubleshooting
 
 ### ✅ User Profile System
 - **Profile Management**: Complete profile information editing

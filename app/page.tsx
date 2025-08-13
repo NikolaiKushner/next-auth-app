@@ -1,91 +1,190 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Shield, Users, Lock, Zap, CheckCircle, ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />  
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+      {/* Header */}
+      <header className="flex justify-between items-center p-6 max-w-7xl mx-auto">
+        <div className="flex items-center space-x-2">
+          <Shield className="h-8 w-8 text-blue-600" />
+          <span className="text-xl font-bold text-gray-900">AuthApp</span>
+        </div>
+        <div className="flex gap-4 items-center">
+          <Link
             href="/sign-in"
+            className="text-gray-600 hover:text-gray-900 font-medium transition-colors px-4 py-2"
           >
             Sign In
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
+          </Link>
+          <Link
             href="/sign-up"
+            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium"
           >
-            Sign Up
-          </a>
+            Get Started
+          </Link>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <main className="max-w-7xl mx-auto px-6 pt-16 pb-24">
+        <div className="text-center mb-16">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+            Secure Authentication
+            <span className="text-blue-600 block">Made Simple</span>
+          </h1>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed">
+            A modern, full-stack authentication system built with Next.js 15 and Supabase. 
+            Experience secure user management with profile system, password recovery, and more.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/sign-up"
+              className="bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors font-semibold text-lg inline-flex items-center justify-center gap-2"
+            >
+              Start Free Trial
+              <ArrowRight className="h-5 w-5" />
+            </Link>
+            <Link
+              href="/sign-in"
+              className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg hover:border-gray-400 hover:bg-gray-50 transition-colors font-semibold text-lg"
+            >
+              Sign In
+            </Link>
+          </div>
+        </div>
+
+        {/* Features Grid */}
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+            <div className="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+              <Lock className="h-6 w-6 text-blue-600" />
+            </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Secure Authentication</h3>
+            <p className="text-gray-600 leading-relaxed">
+              Industry-standard security with email verification, password reset, and protected routes powered by Supabase.
+            </p>
+          </div>
+
+          <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+            <div className="bg-green-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+              <Users className="h-6 w-6 text-green-600" />
+            </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">User Profiles</h3>
+            <p className="text-gray-600 leading-relaxed">
+              Complete profile management with avatar uploads, personal information, and customizable user dashboard.
+            </p>
+          </div>
+
+          <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+            <div className="bg-purple-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+              <Zap className="h-6 w-6 text-purple-600" />
+            </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Modern Stack</h3>
+            <p className="text-gray-600 leading-relaxed">
+              Built with Next.js 15, TypeScript, Tailwind CSS, and modern React patterns for optimal performance.
+            </p>
+          </div>
+        </div>
+
+        {/* Features List */}
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 md:p-12">
+          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
+            Everything You Need
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-1">Email Authentication</h4>
+                  <p className="text-gray-600">Secure sign-up and sign-in with email verification</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-1">Password Recovery</h4>
+                  <p className="text-gray-600">Secure password reset via email with token verification</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-1">Protected Routes</h4>
+                  <p className="text-gray-600">Automatic authentication middleware and route protection</p>
+                </div>
+              </div>
+            </div>
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-1">User Dashboard</h4>
+                  <p className="text-gray-600">Personalized dashboard with user information and navigation</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-1">Avatar Upload</h4>
+                  <p className="text-gray-600">Drag-and-drop image upload with preview and storage</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-1">Responsive Design</h4>
+                  <p className="text-gray-600">Mobile-first design that works on all devices</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="text-center mt-16">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            Ready to Get Started?
+          </h2>
+          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            Join thousands of users who trust our secure authentication system.
+            Set up your account in minutes.
+          </p>
+          <Link
+            href="/sign-up"
+            className="bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors font-semibold text-lg inline-flex items-center gap-2"
+          >
+            Create Account
+            <ArrowRight className="h-5 w-5" />
+          </Link>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      {/* Footer */}
+      <footer className="bg-gray-50 border-t border-gray-200">
+        <div className="max-w-7xl mx-auto px-6 py-8">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="flex items-center space-x-2 mb-4 md:mb-0">
+              <Shield className="h-6 w-6 text-blue-600" />
+              <span className="font-semibold text-gray-900">AuthApp</span>
+            </div>
+            <div className="flex space-x-6">
+              <a href="https://github.com" className="text-gray-600 hover:text-gray-900 transition-colors">
+                GitHub
+              </a>
+              <a href="/docs" className="text-gray-600 hover:text-gray-900 transition-colors">
+                Documentation
+              </a>
+              <a href="/api" className="text-gray-600 hover:text-gray-900 transition-colors">
+                API
+              </a>
+            </div>
+          </div>
+          <div className="mt-6 pt-6 border-t border-gray-200 text-center text-gray-500">
+            <p>&copy; 2024 AuthApp. Built with Next.js 15 and Supabase.</p>
+          </div>
+        </div>
       </footer>
     </div>
   );

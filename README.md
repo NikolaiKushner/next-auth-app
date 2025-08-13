@@ -5,6 +5,7 @@ A modern, full-stack web application built with Next.js 15, featuring user authe
 ## 🚀 Features
 
 - **🔐 User Authentication**: Complete sign-in and sign-up functionality
+- **🔑 Password Reset**: Secure email-based password recovery system
 - **🛡️ Protected Routes**: Secure dashboard with authentication middleware
 - **👤 User Profile System**: Complete profile management with avatar upload
 - **🖼️ Avatar Upload**: Drag-and-drop image upload with preview
@@ -32,6 +33,8 @@ A modern, full-stack web application built with Next.js 15, featuring user authe
 next-auth-app/
 ├── docs/                          # 📚 Documentation
 │   ├── README.md                  # Documentation index
+│   ├── PASSWORD_RESET_SETUP.md    # Password reset setup guide
+│   ├── PASSWORD_RESET.md          # Password reset feature documentation
 │   ├── PROFILE_SYSTEM.md          # User Profile System guide
 │   └── STORAGE_FIX.md             # Storage troubleshooting guide
 ├── app/
@@ -49,6 +52,16 @@ next-auth-app/
 │   │   └── page.tsx              # Sign in form
 │   ├── sign-up/                  # User registration
 │   │   └── page.tsx              # Sign up form
+│   ├── forgot-password/          # Password reset request
+│   │   └── page.tsx              # Forgot password form
+│   ├── reset-password/           # Password reset completion
+│   │   ├── page.tsx              # Reset password page
+│   │   └── ResetPasswordForm.tsx # Reset form component
+│   ├── api/auth/                 # Authentication API routes
+│   │   ├── forgot-password/route.ts    # Send reset email
+│   │   ├── reset-password/route.ts     # Process password reset
+│   │   ├── callback/route.ts           # Auth callbacks
+│   │   └── password-reset-callback/route.ts # Password reset callbacks
 │   ├── globals.css               # Global styles
 │   ├── layout.tsx                # Root layout
 │   └── page.tsx                  # Home page
@@ -72,6 +85,8 @@ next-auth-app/
 For detailed documentation, visit the [`docs/`](./docs/) folder:
 
 - **[📖 Documentation Index](./docs/README.md)** - Overview of all documentation
+- **[🔑 Password Reset Setup](./docs/PASSWORD_RESET_SETUP.md)** - Quick setup guide for password reset
+- **[📋 Password Reset Feature](./docs/PASSWORD_RESET.md)** - Detailed password reset documentation
 - **[👤 Profile System](./docs/PROFILE_SYSTEM.md)** - Complete guide to the User Profile System
 - **[🔧 Storage Fix](./docs/STORAGE_FIX.md)** - Guide to fixing storage upload issues
 
@@ -108,6 +123,7 @@ For detailed documentation, visit the [`docs/`](./docs/) folder:
    ```env
    NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
    NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+   NEXT_PUBLIC_SITE_URL=http://localhost:3000  # For development
    SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
    ```
 
@@ -150,6 +166,7 @@ For detailed documentation, visit the [`docs/`](./docs/) folder:
 |----------|-------------|----------|
 | `NEXT_PUBLIC_SUPABASE_URL` | Your Supabase project URL | Yes |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Your Supabase anonymous key | Yes |
+| `NEXT_PUBLIC_SITE_URL` | Your site URL for email links | Yes |
 | `SUPABASE_SERVICE_ROLE_KEY` | Your Supabase service role key | Yes |
 
 ## 📱 Available Scripts
@@ -164,6 +181,7 @@ For detailed documentation, visit the [`docs/`](./docs/) folder:
 ### Authentication System
 - **Sign Up**: New user registration with email validation
 - **Sign In**: Secure login with password authentication
+- **Password Reset**: Email-based password recovery with secure tokens
 - **Protected Routes**: Automatic redirection for unauthenticated users
 - **Session Management**: Persistent authentication state
 - **Sign Out**: Secure logout functionality
