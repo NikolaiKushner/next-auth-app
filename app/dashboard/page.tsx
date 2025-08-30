@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import Button from '../components/Button';
 import Navigation from '../components/Navigation';
 import { User } from 'lucide-react';
@@ -64,9 +65,11 @@ export default async function Dashboard() {
               <div className="bg-card rounded-lg border p-6">
                 <div className="flex items-center space-x-4 mb-4">
                   {profile?.avatar_url ? (
-                    <img
+                    <Image
                       src={profile.avatar_url}
                       alt="Profile"
+                      width={64}
+                      height={64}
                       className="w-16 h-16 rounded-full object-cover flex-shrink-0"
                     />
                   ) : (

@@ -6,12 +6,15 @@ interface InputProps {
   placeholder?: string;
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
   name?: string;
   id?: string;
   required?: boolean;
   disabled?: boolean;
   className?: string;
   error?: string;
+  autoFocus?: boolean;
 }
 
 export default function Input({
@@ -19,12 +22,15 @@ export default function Input({
   placeholder,
   value,
   onChange,
+  onKeyDown,
+  onBlur,
   name,
   id,
   required = false,
   disabled = false,
   className = '',
-  error
+  error,
+  autoFocus = false
 }: InputProps) {
   return (
     <div className="w-full">
@@ -33,10 +39,13 @@ export default function Input({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
+        onKeyDown={onKeyDown}
+        onBlur={onBlur}
         name={name}
         id={id}
         required={required}
         disabled={disabled}
+        autoFocus={autoFocus}
         className={cn(
           "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
           error && "border-destructive focus-visible:ring-destructive",

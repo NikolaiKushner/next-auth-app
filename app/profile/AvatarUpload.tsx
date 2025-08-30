@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
+import Image from 'next/image';
 import { createClient } from '@/lib/supabase/client';
 import { User } from '@supabase/supabase-js';
 import Button from '../components/Button';
@@ -159,9 +160,11 @@ export default function AvatarUpload({ user, currentAvatar }: AvatarUploadProps)
         onClick={() => fileInputRef.current?.click()}
       >
         {previewUrl ? (
-          <img
+          <Image
             src={previewUrl}
             alt="Profile avatar"
+            width={128}
+            height={128}
             className="w-full h-full rounded-full object-cover"
           />
         ) : (

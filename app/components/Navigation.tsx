@@ -3,10 +3,11 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
-import { Home, User } from 'lucide-react';
+import { Home, User, CheckSquare } from 'lucide-react';
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: Home },
+  { name: 'TODO Lists', href: '/todos', icon: CheckSquare },
   { name: 'Profile', href: '/profile', icon: User },
 ];
 
