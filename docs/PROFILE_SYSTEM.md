@@ -67,16 +67,18 @@ CREATE TABLE profiles (
 
 ```
 app/
-├── profile/
-│   ├── page.tsx              # Main profile page
-│   ├── ProfileForm.tsx       # Profile information form
-│   └── AvatarUpload.tsx      # Avatar upload component
+├── (auth)/                   # 🔒 Protected route group
+│   ├── layout.tsx           # Auth layout with navigation header
+│   ├── profile/             # Profile management
+│   │   ├── page.tsx         # Main profile page
+│   │   ├── ProfileForm.tsx  # Profile information form
+│   │   └── AvatarUpload.tsx # Avatar upload component
+│   └── dashboard/
+│       └── page.tsx         # Enhanced dashboard
 ├── components/
-│   ├── Navigation.tsx        # Navigation component
-│   ├── Button.tsx           # Reusable button component
-│   └── Input.tsx            # Reusable input component
-└── dashboard/
-    └── page.tsx             # Enhanced dashboard
+│   ├── Navigation.tsx       # Navigation component (used in auth layout)
+│   ├── Button.tsx          # Reusable button component
+│   └── Input.tsx           # Reusable input component
 ```
 
 ### Key Features
@@ -102,8 +104,9 @@ app/
 ### For Users
 
 1. **Access Profile Page**
-   - Navigate to `/profile` or click "Profile" in navigation
-   - Dashboard also has a "Edit Profile" button
+   - Navigate to `/profile` or click "Profile" in the navigation header
+   - Dashboard also has an "Edit Profile" button
+   - All authenticated pages now have consistent navigation
 
 2. **Update Profile Information**
    - Fill in the form fields (name, bio, location, website)
@@ -131,11 +134,11 @@ app/
 
 3. **Component Usage**
    ```tsx
-   // Profile page
+   // Profile page (in (auth)/profile/page.tsx)
    import ProfileForm from './ProfileForm';
    import AvatarUpload from './AvatarUpload';
 
-   // Navigation
+   // Navigation (used in (auth)/layout.tsx)
    import Navigation from '../components/Navigation';
    ```
 

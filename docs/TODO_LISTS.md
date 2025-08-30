@@ -40,18 +40,22 @@ Two tables created in Supabase:
 - `PUT /api/todos/[slug]/items/[itemId]` - update task
 - `DELETE /api/todos/[slug]/items/[itemId]` - delete task
 
-### Pages
+### Pages (Located in `(auth)` route group)
 
-1. **`/todos`** - main page with all TODO lists
+All TODO pages are now protected and include unified navigation:
+
+1. **`(auth)/todos/page.tsx`** - main page with all TODO lists
    - Displays list cards with completion progress
    - Create new list button
    - List deletion capability
+   - Consistent navigation header
 
-2. **`/todos/new`** - new TODO list creation page
+2. **`(auth)/todos/new/page.tsx`** - new TODO list creation page
    - Form with title and description fields
    - Data validation
+   - Integrated with auth layout
 
-3. **`/todos/[slug]`** - view and edit specific list page
+3. **`(auth)/todos/[slug]/page.tsx`** - view and edit specific list page
    - View and edit list information
    - Add new tasks
    - Edit existing tasks
@@ -115,11 +119,12 @@ All necessary types defined in `lib/types.ts`:
 - `CreateTodoItemData`, `UpdateTodoItemData` - task data
 
 ### Components
-Uses existing components:
+Uses existing components within the `(auth)` layout structure:
 - `Button` - for all buttons
 - `Input` - for input fields
-- `Navigation` - updated with TODO tab
+- `Navigation` - integrated into auth layout header with TODO tab
 - `ConfirmModal` - custom confirmation dialogs
+- Auth layout automatically handles navigation and authentication
 
 ### Icons
 Uses icons from Lucide React:
