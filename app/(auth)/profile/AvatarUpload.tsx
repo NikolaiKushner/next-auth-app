@@ -4,7 +4,7 @@ import { useState, useRef } from 'react';
 import Image from 'next/image';
 import { createClient } from '@/lib/supabase/client';
 import { User } from '@supabase/supabase-js';
-import Button from '../components/Button';
+import Button from '../../components/Button';
 import { Upload, X, User as UserIcon } from 'lucide-react';
 
 interface AvatarUploadProps {

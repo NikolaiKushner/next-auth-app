@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { User } from '@supabase/supabase-js';
-import Button from '../components/Button';
-import Input from '../components/Input';
+import Button from '../../components/Button';
+import Input from '../../components/Input';
 import { Profile } from '@/lib/types';
 
 interface ProfileFormProps {
